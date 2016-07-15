@@ -261,7 +261,11 @@ export class SeedConfig {
    * The list of local files to be injected in the `index.html`.
    * @type {InjectableDependency[]}
    */
+   // @Prasanth : 15/7
   APP_ASSETS: InjectableDependency[] = [
+    { src: `${this.CSS_SRC}/bootstrap.min.${ this.getInjectableStyleExtension() }`, inject: true, vendor: false },
+    { src: `${this.CSS_SRC}/bootstrap-theme.${ this.getInjectableStyleExtension() }`, inject: true, vendor: false },
+    { src: `${this.CSS_SRC}/font-awesome.min.${ this.getInjectableStyleExtension() }`, inject: true, vendor: false },
     { src: `${this.CSS_SRC}/main.${ this.getInjectableStyleExtension() }`, inject: true, vendor: false },
   ];
 
