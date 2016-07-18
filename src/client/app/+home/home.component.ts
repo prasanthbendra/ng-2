@@ -3,6 +3,7 @@ import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
 
 import { NameListService } from '../shared/index';
 import { BannerComponent } from './banner/index';
+import { FeaturesComponent } from './features/index';
 import { FaqComponent } from './faq/index';
 
 /**
@@ -13,7 +14,7 @@ import { FaqComponent } from './faq/index';
   selector: 'sd-home',
   templateUrl: 'home.component.html',
   styleUrls: ['home.component.css'],
-  directives: [REACTIVE_FORM_DIRECTIVES, BannerComponent, FaqComponent]
+  directives: [REACTIVE_FORM_DIRECTIVES, BannerComponent, FeaturesComponent, FaqComponent]
 })
 export class HomeComponent {
 
