@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
 
 import { NameListService } from '../shared/index';
+import { BannerComponent } from './banner/index';
 
 /**
  * This class represents the lazy loaded HomeComponent.
@@ -11,7 +12,7 @@ import { NameListService } from '../shared/index';
   selector: 'sd-home',
   templateUrl: 'home.component.html',
   styleUrls: ['home.component.css'],
-  directives: [REACTIVE_FORM_DIRECTIVES]
+  directives: [REACTIVE_FORM_DIRECTIVES, BannerComponent]
 })
 export class HomeComponent {
 
