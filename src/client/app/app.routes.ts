@@ -1,5 +1,6 @@
 import { provideRouter, RouterConfig } from '@angular/router';
 
+import { SignupRoutes } from './+signup/index';
 import { SigninRoutes } from './+signin/index';
 import { RightpageRoutes } from './+rightpage/index';
 import { LeftpageRoutes } from './+leftpage/index';
@@ -13,7 +14,8 @@ const routes: RouterConfig = [
   ...ContactRoutes,
   ...LeftpageRoutes,
   ...RightpageRoutes,
-  ...SigninRoutes
+  ...SigninRoutes,
+  ...SignupRoutes
 ];
 
 export const APP_ROUTER_PROVIDERS = [
