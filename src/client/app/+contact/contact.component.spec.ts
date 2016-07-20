@@ -33,7 +33,7 @@ export function main() {
 
 @Component({
     selector: 'test-cmp',
-    directives: [AboutComponent],
+    directives: [ContactComponent],
     template: '<sd-about></sd-about>'
 })
 class TestComponent {}
