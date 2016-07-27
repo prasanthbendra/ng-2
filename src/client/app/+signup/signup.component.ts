@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators, Control, ControlGroup, FORM_DIRECTIVES } from '@angular/common';
+import { Router } from '@angular/router';
 
 /**
  * This class represents the lazy loaded AboutComponent.
@@ -12,7 +13,7 @@ import { FormBuilder, Validators, Control, ControlGroup, FORM_DIRECTIVES } from 
     directives: [FORM_DIRECTIVES]
 })
 export class SignupComponent {
-    form: ControlGroup;
+    signupForm: ControlGroup;
     firstName: Control;
     lastName: Control;
     email: Control;
@@ -20,7 +21,7 @@ export class SignupComponent {
     cPassword: Control;
     submitted: boolean = false;
 
-    constructor(private builder: FormBuilder) {
+    constructor(private builder: FormBuilder, private router: Router) {
         this.firstName = new Control(
             "",
             Validators.required
@@ -45,20 +46,17 @@ export class SignupComponent {
             Validators.required
         );
 
-        this.form = builder.group({
+        this.signupForm = builder.group({
             firstName: this.firstName,
             lastName: this.lastName,
             email: this.email,
             password: this.password,
             cPassword: this.cPassword
         });
-
-        console.log(this.form)
     }
 
     submitData() {
-        console.log(this.submitted);
-        console.log(this.form.value);
-        //console.log(this.form.value);
+        console.log(this.signupForm.value);
+        this.router.navigate(['/signin'])
     }
 }

@@ -17,7 +17,7 @@
                         <h3 class="thin text-center">Register a new account</h3>
                         <p class="text-center text-muted">Lorem ipsum dolor sit amet, <a href="signin.html">Login</a> adipisicing elit. Quo nulla quibusdam cum doloremque incidunt nemo sunt a tenetur omnis odio. </p>
                         <hr>
-                        <form [ngFormModel]="form">
+                        <form [ngFormModel]="signupForm">
                             <div class="top-margin">
                                 <label>First Name</label>
                                 <input ngControl="firstName" type="text" class="form-control">
@@ -68,7 +68,7 @@
                                     </label>
                                 </div>
                                 <div class="col-lg-4 text-right">
-                                    <button (click)="!!form.valid && submitData()" [disabled]="!form.valid" class="btn btn-action" type="submit">Register</button>
+                                    <button (click)="!!signupForm.valid && submitData()" [disabled]="!signupForm.valid" class="btn btn-action" type="submit">Register</button>
                                 </div>
                             </div>
                         </form>
