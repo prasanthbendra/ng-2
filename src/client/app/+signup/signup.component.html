@@ -17,27 +17,47 @@
                         <h3 class="thin text-center">Register a new account</h3>
                         <p class="text-center text-muted">Lorem ipsum dolor sit amet, <a href="signin.html">Login</a> adipisicing elit. Quo nulla quibusdam cum doloremque incidunt nemo sunt a tenetur omnis odio. </p>
                         <hr>
-                        <form>
+                        <form [ngFormModel]="form">
                             <div class="top-margin">
                                 <label>First Name</label>
-                                <input type="text" class="form-control">
+                                <input ngControl="firstName" type="text" class="form-control">
+                                <p *ngIf="firstName.pending">Fetching data from the server...</p>
+                                <div *ngIf="firstName.dirty && !firstName.valid && !firstName.pending">
+                                    <p *ngIf="firstName.errors.required">First name is required.</p>
+                                </div>
                             </div>
                             <div class="top-margin">
                                 <label>Last Name</label>
-                                <input type="text" class="form-control">
+                                <input ngControl="lastName" type="text" class="form-control">
+                                <p *ngIf="lastName.pending">Fetching data from the server...</p>
+                                <div *ngIf="lastName.dirty && !lastName.valid && !lastName.pending">
+                                    <p *ngIf="lastName.errors.required">Last name is required.</p>
+                                </div>
                             </div>
                             <div class="top-margin">
                                 <label>Email Address <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control">
+                                <input ngControl="email" type="text" class="form-control">
+                                <p *ngIf="email.pending">Fetching data from the server...</p>
+                                <div *ngIf="email.dirty && !email.valid && !email.pending">
+                                    <p *ngIf="email.errors.required">email is required.</p>
+                                </div>
                             </div>
                             <div class="row top-margin">
                                 <div class="col-sm-6">
                                     <label>Password <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control">
+                                    <input ngControl="password" type="password" class="form-control">
+                                    <p *ngIf="password.pending">Fetching data from the server...</p>
+                                    <div *ngIf="password.dirty && !password.valid && !password.pending">
+                                        <p *ngIf="password.errors.required">Password is required.</p>
+                                    </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <label>Confirm Password <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control">
+                                    <input ngControl="cPassword" type="password" class="form-control">
+                                    <p *ngIf="cPassword.pending">Fetching data from the server...</p>
+                                    <div *ngIf="cPassword.dirty && !cPassword.valid && !cPassword.pending">
+                                        <p *ngIf="cPassword.errors.required">Please confirm your password.</p>
+                                    </div>
                                 </div>
                             </div>
                             <hr>
@@ -48,7 +68,7 @@
                                     </label>
                                 </div>
                                 <div class="col-lg-4 text-right">
-                                    <button class="btn btn-action" type="submit">Register</button>
+                                    <button (click)="!!form.valid && submitData()" [disabled]="!form.valid" class="btn btn-action" type="submit">Register</button>
                                 </div>
                             </div>
                         </form>
